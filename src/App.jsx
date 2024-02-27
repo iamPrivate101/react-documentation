@@ -1,5 +1,7 @@
 
 import './App.css'
+import { useState } from "react";
+import ButtonCount from './component/ButtonCount';
 import MyButton from './component/MyButton';
 
 function App() {
@@ -9,6 +11,11 @@ function App() {
     {title : "Mango", is_fruit:true, id:3 },
   ]
 
+  const [count, setCount] = useState(0);
+    function handleClick() {
+        setCount(count + 1);
+    }
+
   const listitems = products.map(product => <li style={{color:product.is_fruit ? 'magenta' : 'darkgreen'}} key={product.id} >{product.title}</li> );
 
   return (
@@ -17,6 +24,9 @@ function App() {
       {listitems}
     </ul>
     <MyButton></MyButton>
+
+    <ButtonCount count={count} onClick={handleClick} ></ButtonCount> 
+    <ButtonCount count={count} onClick={handleClick} ></ButtonCount>
     </>
     
   )

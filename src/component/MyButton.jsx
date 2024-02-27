@@ -1,13 +1,16 @@
+import { useState } from "react"; //to remember soething and display it
 
 const MyButton = () => {
 
-  function handleclick(){
+  const [count, setCount] = useState(0);
+
+  function handleclickalert(){
     alert('here clicked');
   };
     
   return (
     <div>
-      <button onClick={handleclick} >Click me</button>
+      <button onClick={handleclickalert} >Alert</button>
     </div>
   )
 }
